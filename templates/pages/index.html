@@ -1,30 +1,8 @@
-{%extends 'base.html' %}
-{% block content  %}
+<h1>hello i am ouahid</h1>
 
-{% load static %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}"/>"
-
-<img src = "{% static 'img/java.png' %}"/>
-
-
-{% if name == 'ouahid' %}
-    <h2>Welcome {{ name }}!</h2>
-{% elif name == 'rachid' %}
-    <h2>Welcome to your classe room!</h2>
-{% else %}
-    <h2>Welcome to the website!</h2>
+{% block content %}
+<p>
+    {{pro}}
+</p>   
+{% endblock content %}
     
-{% endif  %}
-
-{% for x in name %}
-    <p>{{ name}}</p>
-{% endfor %}
-    
-{% endblock %} 
-
-
-
-    
-    
-
-
