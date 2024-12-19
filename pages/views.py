@@ -1,10 +1,14 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from .models import Male, Female
+from .models import Male
+
 # Create your views here.
 def index(request):
-    return render(request, 'pages/index.html', {'name':'rachid'})
-def pages(request):
-    return render(request, 'pages/about.html', {'n1':'ouahid'} )
+    # Récupérer les objets Male, en excluant ceux avec enfant = 0
+    name = Male.objects.exclude(enfant=0)
+    
+    # Passer les objets directement au template (pas besoin de les convertir en chaîne)
+    context = {'name': name}
+    return render(request, 'pages/index.html', context)
 
-#{'pro': Male.objects.get(name_male='oussama')}#
+def pages(request):
+    return render(request, 'pages/about.html', {'n1': 'ouahid'})

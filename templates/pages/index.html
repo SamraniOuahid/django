@@ -1,11 +1,9 @@
-<h1>hello i am ouahid</h1>
-
 {% block content %}
-<p>
-    {{pro}}
-</p>   
+    {% for x in name %}
+        <p> name: {{ x.name }}</p>
+        <p> age: {{ x.age }}</p>
+        <p> nombre d'enfant: {{ x.enfant }}</p>
+        <p>femme: {{ x.girls }}</p>
+        <hr>
+    {% endfor %}
 {% endblock content %}
-
-{{name}}
-{{n1}}
-    
