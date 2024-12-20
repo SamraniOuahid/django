@@ -1,9 +1,23 @@
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% extends './style.css' %}" >
+</head>
+<body>
+    {% block content %}
     {% for x in name %}
         <p> name: {{ x.name }}</p>
         <p> age: {{ x.age }}</p>
         <p> nombre d'enfant: {{ x.enfant }}</p>
         <p>femme: {{ x.girls }}</p>
+
+        <img width="500px" src="{{x.image.url}}" alt="">
         <hr>
     {% endfor %}
 {% endblock content %}
+</body>
+</html>
+
