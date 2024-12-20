@@ -1,5 +1,12 @@
 from django.db import models
 
+class Login(models.Model):
+    username = models.CharField(max_length=20, null=True)
+    password = models.CharField(max_length=20, null=True)
+
+    def __str__(self):
+        return self.username
+
 # Create your models here.
 # One-to-One Relationship
 class Female(models.Model):
