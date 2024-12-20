@@ -1,14 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% extends './style.css' %}" >
-</head>
-<body>
-    {% block content %}
-    {% for x in name %}
+{% block content %}
+
+
+<h1>form:</h1>
+<form method="GET">
+    <!-- {% csrf_token %} -->
+    <input type="text" name="username" >
+    <input type="password" name="password" id="">
+    <br>
+    <input type="submit" value="save" name="sub">
+</form>
+
+{% endblock content %}
+
+<!-- {% for x in name %}
         <p> name: {{ x.name }}</p>
         <p> age: {{ x.age }}</p>
         <p> nombre d'enfant: {{ x.enfant }}</p>
@@ -16,8 +20,7 @@
 
         <img width="500px" src="{{x.image.url}}" alt="">
         <hr>
-    {% endfor %}
-{% endblock content %}
-</body>
-</html>
+    {% endfor %} -->
+ 
+
 
