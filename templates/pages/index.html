@@ -2,12 +2,14 @@
 
 
 <h1>form:</h1>
-<form method="GET">
-    <!-- {% csrf_token %} -->
-    <input type="text" name="username" >
-    <input type="password" name="password" id="">
-    <br>
-    <input type="submit" value="save" name="sub">
+<form method="POST">
+    {% csrf_token %}
+    <!-- <label for="username">Username:</label>
+    <input type="text" id="username" name="username">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"> -->
+    {{ lf }}
+    <button type="submit">Submit</button>
 </form>
 
 {% endblock content %}
@@ -21,6 +23,3 @@
         <img width="500px" src="{{x.image.url}}" alt="">
         <hr>
     {% endfor %} -->
- 
-
-

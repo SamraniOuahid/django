@@ -1,40 +1,22 @@
 from django.db import models
 
-class Login(models.Model):
-    username = models.CharField(max_length=20, null=True)
-    password = models.CharField(max_length=20, null=True)
-
-    def __str__(self):
-        return self.username
-
 # Create your models here.
-# One-to-One Relationship
 class Female(models.Model):
-    name_female = models.CharField(max_length=20, null=True)
-
+    name_female = models.CharField(max_length=50, null=True)
+    
     def __str__(self):
-        return self.name_female
+        return self.name_female if self.name_female else ""
 
 class Male(models.Model):
-    name = models.CharField(max_length=20, null=True)
-    age = models.IntegerField(null=True)
-    enfant = models.IntegerField(null=True)
-    image = models.ImageField(upload_to='photos/%y/%m/%d', null=True, blank=True)
+    name_male = models.CharField(max_length=50, null=True)
     girls = models.OneToOneField(Female, on_delete=models.CASCADE)
-
+    
     def __str__(self):
-        return self.name
+        return self.name_male if self.name_male else ""
 
-# Many-to-Many Relationship
-class Product(models.Model):
-    title = models.CharField(max_length=20, null=True)
-
+class Login(models.Model):
+    username = models.CharField(max_length=50, null=True)
+    password = models.CharField(max_length=50, null=True)
+    
     def __str__(self):
-        return self.title
-
-class User(models.Model):
-    name = models.CharField(max_length=20, null=True)
-    products = models.ManyToManyField(Product)
-
-    def __str__(self):
-        return self.name
+        return self.username if self.username else ""
