@@ -5,16 +5,19 @@ from .forms import LoginForm
 
 # Create your views here.
 def index(request):
-    if request.method == 'POST':
-        user = request.POST.get('username')
-        passw = request.POST.get('password')
+
+    dataLogin = LoginForm(request.POST)
+    dataLogin.save()
+    # if request.method == 'POST':
+    #     user = request.POST.get('username')
+    #     passw = request.POST.get('password')
         
-        if user and passw:
-            data = Login(username=user, password=passw)
-            data.save()
-            return HttpResponse("Data saved successfully")
-        else:
-            return HttpResponse("Please provide both username and password")
+    #     if user and passw:
+    #         data = Login(username=user, password=passw)
+    #         data.save()
+    #         return HttpResponse("Data saved successfully")
+    #     else:
+    #         return HttpResponse("Please provide both username and password")
     
     return render(request, 'pages/index.html',{'lf':LoginForm()})
 
