@@ -2,12 +2,13 @@ from django.shortcuts import render
 from .models import Male, Login
 from django.http import HttpResponse
 from .forms import LoginForm
-
+from django.http import JsonResponse
+import json
 # Create your views here.
 def index(request):
 
     dataLogin = LoginForm(request.POST)
-    dataLogin.save()
+    # dataLogin.save()
     # if request.method == 'POST':
     #     user = request.POST.get('username')
     #     passw = request.POST.get('password')
@@ -23,3 +24,6 @@ def index(request):
 
 def pages(request):
     return render(request, 'pages/about.html', {'n1': 'ouahid'})
+def json(request):
+    data = list(Login.objects.values())
+    return JsonResponse(data, safe=False)
