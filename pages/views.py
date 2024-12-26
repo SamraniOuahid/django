@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Male, Login
+from .models import Male, Login, Female
 from django.http import HttpResponse
 from .forms import LoginForm
 from django.http import JsonResponse
@@ -25,5 +25,5 @@ def index(request):
 def pages(request):
     return render(request, 'pages/about.html', {'n1': 'ouahid'})
 def json(request):
-    data = list(Login.objects.values())
+    data = list(Female.objects.values())
     return JsonResponse(data, safe=False)
